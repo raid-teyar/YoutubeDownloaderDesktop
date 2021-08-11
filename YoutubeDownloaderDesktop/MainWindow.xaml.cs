@@ -20,6 +20,7 @@ namespace YoutubeDownloaderDesktop
     /// </summary>
     public partial class MainWindow : Window
     {
+        int t;
         public MainWindow()
         {
             InitializeComponent();
