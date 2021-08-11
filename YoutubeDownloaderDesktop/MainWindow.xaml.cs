@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using YoutubeExplode;
+using YoutubeExplode.Videos;
 
 namespace YoutubeDownloaderDesktop
 {
@@ -20,10 +22,31 @@ namespace YoutubeDownloaderDesktop
     /// </summary>
     public partial class MainWindow : Window
     {
-        int t;
+        public static YoutubeExplode.Videos.Video video;
+        public static YoutubeClient client = new YoutubeClient();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private async void check_link(object sender, RoutedEventArgs e)
+        {
+            bool Valide = true;
+            try
+            {
+                this.BackSplash.Opacity = 100.0;
+                video = await client.Videos.GetAsync(Link.Text);
+                this.BackSplash.Opacity = 0.0;
+            }
+            catch (Exception ex)
+            {
+                Valide = false;
+                int num = (int)MessageBox.Show(ex.Message);
+            }
+            this.BackSplash.Opacity = 0.0;
+            if (!Valide)
+                return;
+            new Video().Show();
         }
     }
 }

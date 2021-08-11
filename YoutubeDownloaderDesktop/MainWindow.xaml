@@ -1,12 +1,79 @@
-﻿<Window x:Class="YoutubeDownloaderDesktop.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:YoutubeDownloaderDesktop"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+﻿<Window
+    x:Class="YoutubeDownloaderDesktop.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:YoutubeDownloaderDesktop"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Youtube Downloader"
+    Width="800"
+    Height="450"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <DockPanel>
+        <Panel.Background>
+            <ImageBrush
+                x:Name="BackSplash"
+                ImageSource="/splash.png"
+                Opacity="0" />
+        </Panel.Background>
+        <Menu
+            Height="50"
+            DockPanel.Dock="Top"
+            FontSize="17">
+            <MenuItem Header="File" />
+            <MenuItem Header="View" />
+            <MenuItem Header="Window" />
+            <MenuItem Header="Help">
+                <MenuItem Header="Contact" />
+                <MenuItem Header="About" />
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontFamily="Candara Light"
+                FontSize="50"
+                Foreground="#FF5118B8">
+                Youtube Downloader
+            </TextBlock>
+            <TextBox
+                x:Name="Link"
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                MinWidth="450"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="20" />
+            <Button
+                Grid.Row="4"
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                Click="check_link">
+                Check Link
+            </Button>
+        </Grid>
+    </DockPanel>
 </Window>

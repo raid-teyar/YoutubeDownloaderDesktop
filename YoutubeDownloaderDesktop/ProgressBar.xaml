@@ -1,0 +1,22 @@
+﻿<Window
+    x:Class="YoutubeDownloaderDesktop.ProgressBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:YoutubeDownloaderDesktop"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="MyWindow"
+    Title="ProgressBar"
+    Width="200"
+    Height="100"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid>
+        <TextBlock
+            x:Name="progressTxt"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Text="{Binding ElementName=MyWindow, Path=myProgress}" />
+    </Grid>
+</Window>
